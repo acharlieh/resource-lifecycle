@@ -1,0 +1,20 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos
+    driver_config:
+      box: chef/centos-6.6
+  - name: ubuntu
+    driver_config:
+      box: chef/ubuntu-12.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[resource-lifecycle::default]
+    attributes:
